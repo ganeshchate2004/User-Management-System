@@ -69,9 +69,9 @@ This project is built to serve as a scalable boilerplate for any user-centric ap
 
 ---
 ### 🖥️ Run the Backend (Angular 19)
-cd frontend
-npm install
-ng serve
+- cd frontend
+- npm install
+- ng serve
 
 ### 🖥️ Run the Backend (Flask)
 
