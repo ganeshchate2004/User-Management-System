@@ -1,0 +1,112 @@
+
+
+ <mat-card class="user-profile-card">
+  <mat-card-header>
+    <mat-card-title  >{{ userData.fullName }}</mat-card-title>
+    
+    <button mat-icon-button class="edit-button" (click)="editProfile()">
+      <mat-icon [routerLink]="['/userUpdate', id]"  >edit</mat-icon>
+    </button>
+  </mat-card-header>
+  <br>
+  
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <div class="profile-details">
+      <div class="detail-column">
+        <mat-list>
+          <mat-list-item>
+            <mat-icon matListItemIcon>email</mat-icon>
+            <p matListItemTitle>Email</p>
+            <p matListItemLine>{{ userData.email }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>phone</mat-icon>
+            <p matListItemTitle>Phone</p>
+            <p matListItemLine>{{ userData.phone }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>cake</mat-icon>
+            <p matListItemTitle>Date of Birth</p>
+            <p matListItemLine>{{ userData.dob | date }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>{{ userData.gender === 'Male' ? 'male' : 'female' }}</mat-icon>
+            <p matListItemTitle>Gender</p>
+            <p matListItemLine>{{ userData.gender }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>business</mat-icon>
+            <p matListItemTitle>Department</p>
+            <p matListItemLine>{{ userData.department }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>work</mat-icon>
+            <p matListItemTitle>Position</p>
+            <p matListItemLine>{{ userData.position }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>code</mat-icon>
+            <p matListItemTitle>Skills</p>
+            <p matListItemLine>{{ userData.skills?.join(', ') }}</p>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+      <div class="detail-column">
+        <mat-list>
+          <mat-list-item>
+            <mat-icon matListItemIcon>info</mat-icon>
+            <p matListItemTitle>Bio</p>
+            <p matListItemLine>{{ userData.bio || 'Not specified' }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>attach_money</mat-icon>
+            <p matListItemTitle>Salary</p>
+            <p matListItemLine>₹{{ userData.salary | number }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>location_on</mat-icon>
+            <p matListItemTitle>Country</p>
+            <p matListItemLine>{{ userData.country }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>home</mat-icon>
+            <p matListItemTitle>Address</p>
+            <p matListItemLine>{{ userData.address }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>markunread_mailbox</mat-icon>
+            <p matListItemTitle>Zip Code</p>
+            <p matListItemLine>{{ userData.zipCode }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>{{ getStatusIcon(userData.status) }}</mat-icon>
+            <p matListItemTitle>Status</p>
+            <p matListItemLine>{{ userData.status }}</p>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>event</mat-icon>
+            <p matListItemTitle>Start Date</p>
+            <p matListItemLine>{{ userData.startDate | date }}</p>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-card-content>
+
+
+</mat-card>

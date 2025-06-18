@@ -1,0 +1,41 @@
+.auth-card {
+  max-width: 400px;
+  /* margin: 80px auto; */
+  margin-left: 340px;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+mat-form-field.full-width {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+button.full-width {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 16px;
+}
+
+.switch-link {
+  margin-top: 1.5rem;
+  font-size: 14px;
+  color: #3f51b5;
+  display: block;
+}
+
+.switch-link a {
+  text-decoration: underline;
+  color: #3f51b5;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}

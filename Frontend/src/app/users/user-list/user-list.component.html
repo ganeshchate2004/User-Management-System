@@ -1,0 +1,94 @@
+
+ <mat-card  style="margin-bottom: 80px;" >
+ 
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[10, 15, 20]"></mat-paginator>
+  
+ 
+<div class="search-container">
+  <mat-form-field appearance="outline" class="search-input">
+    <mat-label>Search users</mat-label>
+    <input #filterInput matInput (keyup)="applyFilter($event)" placeholder="Search users..." />
+  </mat-form-field>
+
+  <button class="clear-button" (click)="clearSearch()">Clear</button>
+</div>
+
+  
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+ 
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let user"> {{user.fullName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+    </ng-container>
+
+  
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Department </th>
+      <td mat-cell *matCellDef="let user"> {{user.department}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Position </th>
+      <td mat-cell *matCellDef="let user"> {{user.position}} </td>
+    </ng-container>
+
+   
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let user"> {{user.status}} </td>
+    </ng-container>
+
+    
+<!-- <ng-container matColumnDef="id">
+  <th mat-header-cell *matHeaderCellDef></th>
+  <td mat-cell *matCellDef="let user">
+    <button mat-button color="primary" [routerLink]="['/user', user.id]"><mat-icon>visibility</mat-icon></button>
+    <button mat-button color="primary" [routerLink]="['/userUpdate', user.id]"><mat-icon>update</mat-icon> </button>
+    <button mat-button color="warn" (click)="openDeleteDialog(user.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </td>
+</ng-container> -->
+    <ng-container matColumnDef="id">
+  <th mat-header-cell *matHeaderCellDef>Actions</th>
+  <td mat-cell *matCellDef="let user">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="More actions">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/user', user.id]">
+        <mat-icon>visibility</mat-icon>
+        <span>View</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/userUpdate', user.id]">
+        <mat-icon>update</mat-icon>
+        <span>Update</span>
+      </button>
+      <button mat-menu-item (click)="openDeleteDialog(user.id)">
+        <mat-icon color="warn">delete</mat-icon>
+        <span>Delete</span>
+      </button>
+    </mat-menu>
+  </td>
+</ng-container>
+
+
+   
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+ 
+
+</mat-card>
+
+
+
+

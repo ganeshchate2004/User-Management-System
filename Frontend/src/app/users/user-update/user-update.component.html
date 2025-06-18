@@ -1,0 +1,101 @@
+<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+  <div class="form-group">
+    <label>Full Name:</label>
+    <input formControlName="fullName" type="text" />
+  </div>
+
+  <div class="form-group">
+    <label>Email:</label>
+    <input formControlName="email" type="email" />
+  </div>
+
+  <div class="form-group">
+    <label>Skills:</label>
+    <div formArrayName="skills">
+      @for (skill of skills.controls; track $index; let index = $index) {
+      <div>
+        <input [formControlName]="index" type="text" />
+        <button type="button" (click)="removeSkill(index)">Remove</button>
+      </div>
+      }
+      <button type="button" (click)="addSkill()">Add Skill</button>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Bio:</label>
+    <textarea formControlName="bio"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Phone:</label>
+    <input formControlName="phone" type="tel" />
+  </div>
+
+  <div class="form-group">
+    <label>Gender:</label>
+    <label><input type="radio" formControlName="gender" value="Male" /> Male</label>
+    <label><input type="radio" formControlName="gender" value="Female" /> Female</label>
+  </div>
+
+  <div class="form-group">
+    <label>Date of Birth:</label>
+    <input formControlName="dob" type="date" />
+  </div>
+
+  <div class="form-group">
+    <label>Department:</label>
+    <select formControlName="department">
+      @for (dept of departments; track dept) {
+      <option [value]="dept">{{ dept }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Position:</label>
+    <input formControlName="position" type="text" />
+  </div>
+
+  <div class="form-group">
+    <label>Start Date:</label>
+    <input formControlName="startDate" type="date" /><br />
+  </div>
+
+  <div class="form-group">
+    <label>Salary:</label>
+    <input formControlName="salary" type="number" />
+  </div>
+
+  <div class="form-group">
+    <label>Country:</label>
+    <select formControlName="country">
+      @for (c of countries; track c) {
+      <option [value]="c">{{ c }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Zip Code:</label>
+    <input formControlName="zipCode" type="text" />
+  </div>
+
+  <div class="form-group">
+    <label>Status:</label>
+    <select formControlName="status">
+      @for (s of statusOptions; track s) {
+      <option [value]="s">{{ s }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Address:</label>
+    <input formControlName="address" type="text" />
+  </div>
+
+  <div class="form-group" style="margin-left: 40%; margin-right: 40%;">
+    <button type="submit" [disabled]="userForm.invalid">Submit</button>
+  </div>
+</form>

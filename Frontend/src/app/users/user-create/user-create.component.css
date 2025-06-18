@@ -1,0 +1,104 @@
+
+form {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  
+}
+
+.form-group {
+  flex: 1 1 calc(50% - 20px); 
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+input,
+select,
+textarea {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+input[type="radio"] {
+  width: auto;
+  margin-right: 6px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+div[formArrayName="skills"] {
+  flex: 1 1 100%;
+  margin-top: 8px;
+}
+
+div[formArrayName="skills"] div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+div[formArrayName="skills"] button {
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  font-size: 13px;
+}
+
+div[formArrayName="skills"] button:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 700px) {
+  .form-group {
+    flex: 1 1 100%; 
+  }
+}
